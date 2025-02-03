@@ -15,4 +15,13 @@ func SetupRoutes(app *fiber.App) {
     // Protected routes (require JWT authentication)
     api := app.Group("/api", middleware.Protected()) // Group for protected routes
     api.Get("/user", controllers.GetUser)            // Example protected route
+
+
+    // Product routes
+    api.Post("/products", controllers.CreateProduct)   // Create a product
+    api.Get("/products", controllers.GetProducts)      // Get all products
+    api.Get("/products/:id", controllers.GetProduct)   // Get a single product
+    api.Put("/products/:id", controllers.UpdateProduct) // Update a product
+    api.Delete("/products/:id", controllers.DeleteProduct) // Delete a product
+   
 }

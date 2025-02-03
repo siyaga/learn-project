@@ -41,7 +41,10 @@ func Connect() {
 
 // Fungsi untuk migrasi otomatis
 func autoMigrate() {
-	err := DB.AutoMigrate(&models.User{})
+	err := DB.AutoMigrate(
+		&models.User{},
+		&models.Product{},
+)
 	if err != nil {
 		log.Fatal("❌ Gagal melakukan migrasi:", err)
 	}
