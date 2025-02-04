@@ -23,5 +23,14 @@ func SetupRoutes(app *fiber.App) {
     api.Get("/products/:id", controllers.GetProduct)   // Get a single product
     api.Put("/products/:id", controllers.UpdateProduct) // Update a product
     api.Delete("/products/:id", controllers.DeleteProduct) // Delete a product
+
+    // Bank CRUD routes
+    api.Post("/bank", controllers.AddBank)          // Create a bank
+    api.Get("/banks", controllers.GetUserBanks)     // Get all user banks
+    api.Put("/bank/:id", controllers.UpdateBank)    // Update bank details
+    api.Delete("/bank/:id", controllers.DeleteBank) // Delete a bank
+
+    // Money management
+    api.Put("/bank/:id/add-money", controllers.AddMoney) // Add money to bank
    
 }

@@ -44,6 +44,7 @@ func autoMigrate() {
 	err := DB.AutoMigrate(
 		&models.User{},
 		&models.Product{},
+		&models.Bank{},
 )
 	if err != nil {
 		log.Fatal("❌ Gagal melakukan migrasi:", err)
